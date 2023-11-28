@@ -31,11 +31,10 @@ function recalculate() {
     let cost = document.getElementById('calculated-cost');
 
     if(modelName=='XYZ') {
-        cost.innerHTML=duration * 100;
+        cost.innerHTML=(duration * 100).toFixed(2);
     } else {
-        cost.innerHTML = duration * 213;
+        cost.innerHTML = (duration * 213).toFixed(2);
     }
-    
 }
 
 
@@ -58,16 +57,13 @@ function recalculate() {
 var modelButton = document.getElementById('model-button');
 
 function changeModel() {
-    let mName = document.getElementById('model-text').innerHTML;
-    if(mName==='Model XYZ'){
+    if(modelName=='XYZ'){
         modelName = 'CPRG';
         document.getElementById('model-text').innerHTML='Model CPRG';
-
     } else {
         modelName = 'XYZ';
         document.getElementById('model-text').innerHTML='Model XYZ';
     }
-
     recalculate()
 }
 
