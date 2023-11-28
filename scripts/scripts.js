@@ -1,4 +1,4 @@
-/****************** YOUR NAME: 
+/****************** YOUR NAME: J Wales
 
 The instructions describe the missing logic that is needed; you will translate these into JavaScript in the places indicated.
 
@@ -10,7 +10,8 @@ You are encouraged to use the provided naming convention for ease of review.
 /* create variables to hold the values for modelName and duration */
 
 // INSERT YOUR CODE HERE
-
+var modelName = 'XYZ';
+var duration = 0;
 
 
 
@@ -26,7 +27,16 @@ You are encouraged to use the provided naming convention for ease of review.
 */
 
 // INSERT YOUR CODE HERE
+function recalculate() {
+    let cost = document.getElementById('calculated-cost');
 
+    if(modelName=='XYZ') {
+        cost.innerHTML=duration * 100;
+    } else {
+        cost.innerHTML = duration * 213;
+    }
+    
+}
 
 
 
@@ -42,12 +52,26 @@ You are encouraged to use the provided naming convention for ease of review.
     - if modelName is currently "CPRG", change the value of modelName to "XYZ", and change the innerHTML of the model-text span element to "Model XYZ"
     - then, recalculate() the total cost.
 - finally, uncomment the following line of JavaScript to have this function run automatically whenever the pseudo-button is clicked: */
-    // modelButton.addEventListener("click", changeModel);
+    
 
 // INSERT YOUR CODE HERE
+var modelButton = document.getElementById('model-button');
 
+function changeModel() {
+    let mName = document.getElementById('model-text').innerHTML;
+    if(mName==='Model XYZ'){
+        modelName = 'CPRG';
+        document.getElementById('model-text').innerHTML='Model CPRG';
 
+    } else {
+        modelName = 'XYZ';
+        document.getElementById('model-text').innerHTML='Model XYZ';
+    }
 
+    recalculate()
+}
+
+modelButton.addEventListener("click", changeModel);
 
 
 
@@ -64,6 +88,11 @@ You are encouraged to use the provided naming convention for ease of review.
 */
 
 // INSERT YOUR CODE HERE
+var durationButton = document.getElementById('duration-button');
 
+function changeDuration() {
+    duration = window.prompt()
+    document.getElementById('duration-text').innerHTML = duration
+}
 
-
+durationButton.addEventListener("click", changeDuration);
