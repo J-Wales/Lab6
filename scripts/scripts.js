@@ -57,14 +57,15 @@ function recalculate() {
 var modelButton = document.getElementById('model-button');
 
 function changeModel() {
+    let modelText = document.getElementById('model-text');
     if(modelName=='XYZ'){
         modelName = 'CPRG';
-        document.getElementById('model-text').innerHTML='Model CPRG';
+        modelText.innerHTML='Model CPRG';
     } else {
         modelName = 'XYZ';
-        document.getElementById('model-text').innerHTML='Model XYZ';
+        modelText.innerHTML='Model XYZ';
     }
-    recalculate()
+    recalculate();
 }
 
 modelButton.addEventListener("click", changeModel);
@@ -87,8 +88,8 @@ modelButton.addEventListener("click", changeModel);
 var durationButton = document.getElementById('duration-button');
 
 function changeDuration() {
-    duration = window.prompt()
-    document.getElementById('duration-text').innerHTML = duration
+    duration = window.prompt();
+    document.getElementById('duration-text').innerHTML = duration;
 }
 
 durationButton.addEventListener("click", changeDuration);
